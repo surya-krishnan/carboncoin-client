@@ -9,7 +9,7 @@ namespace CarbonCoin
 
     public class BalanceInfo {
 
-        public double ccbalance { get; set; }
+        public double carbonBalance { get; set; }
         public double balance { get; set; }
 
     }
