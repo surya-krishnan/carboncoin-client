@@ -15,7 +15,7 @@
             <div class="container">
 
                 <a class="navbar-brand" asp-area="" asp-page="/Index">
-                    <img src="@Url.Content("~/Assets/untitled(2).png")" height="50px" width="175px"/>
+                    <img src="@Url.Content("~/Assets/untitled(2).png")" height="50px" width="175px" />
                 </a>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -23,11 +23,34 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link text-muted" asp-area="" asp-page="/Sign_In">Sign In</a>
-                        </li>
-                    </ul>
+
+
+                    <link />
+
+                    @if (Constants.token != null)
+                    {
+
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link text-muted" asp-area="" asp-page="/MyAccount">MyAccount</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-muted" asp-area="" asp-page="/Transactions">Transactions</a>
+                            </li>
+                        </ul>
+
+                    }
+                    else
+                    {
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+
+                                <a class="nav-link text-muted" asp-area="" asp-page="/Sign_In">Sign In</a>
+                            </li>
+                        </ul>
+                    }
+
                 </div>
             </div>
         </nav>
