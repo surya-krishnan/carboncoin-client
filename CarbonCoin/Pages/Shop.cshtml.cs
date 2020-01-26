@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 namespace CarbonCoin.Pages
 {
     public class StoreItem {
+        public string _id { get; set; }
         public string name { get; set; }
         public double cashCost { get; set; }
         public double carbonCost { get; set; }
@@ -20,13 +21,15 @@ namespace CarbonCoin.Pages
     {
         IHttpClientFactory _clientFactory;
         public List<StoreItem> storeItems;
+        public int index;
+        public string token = Constants.token;
 
         public ShopModel(IHttpClientFactory clientFactory)
         {
             _clientFactory = clientFactory;
         }
 
-        public async void OnGet()
+        public async Task OnGet()
         {
             var request = new HttpRequestMessage(HttpMethod.Get, "http://172.17.79.129:3000/store/inventory");
             request.Headers.Add("auth", Constants.token);
@@ -42,5 +45,6 @@ namespace CarbonCoin.Pages
                 storeItems = JsonConvert.DeserializeObject<List<StoreItem>>(json);
             }
         }
+
     }
 }

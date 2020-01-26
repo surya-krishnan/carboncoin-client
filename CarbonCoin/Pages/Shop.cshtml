@@ -23,7 +23,11 @@
                 <th>@Model.storeItems[i].cashCost</th>
                 <th>$@Model.storeItems[i].carbonCost</th>
                 <th>@Model.storeItems[i].leftInStock</th>
-                <th>Buy</th>
+                <th>
+                    <a href="http://172.17.79.129:3000/store/user/"+ @Model.token
+
+                       +"/buy/product/" + @Model.storeItems[i]._id>Buy</a>
+                </th>
             </tr>
 
         }
