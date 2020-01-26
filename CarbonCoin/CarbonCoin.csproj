@@ -14,4 +14,7 @@
     <Content Remove="Index.cshtml" />
     <Content Remove="Pages\Privacy.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
 </Project>

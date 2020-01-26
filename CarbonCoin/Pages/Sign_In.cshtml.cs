@@ -69,6 +69,8 @@ namespace CarbonCoin
                 token = responseStream.ToString();
 
                 Constants.token = token;
+                Constants.username = username;
+                Constants.password = password;
 
                 return RedirectToPage("./MyAccount");
             }

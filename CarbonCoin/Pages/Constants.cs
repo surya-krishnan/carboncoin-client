@@ -3,6 +3,6 @@ namespace CarbonCoin
 {
     public class Constants
     {
-        public static string token; 
+        public static string token, username, password;
     }
 }
