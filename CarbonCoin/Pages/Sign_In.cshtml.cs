@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Net.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Net;
-using System.IO;
 using System.Text;
 
 namespace CarbonCoin
@@ -21,6 +16,8 @@ namespace CarbonCoin
 
         [BindProperty]
         public string password { get; set; }
+
+        private string token { get; set; }
 
         private readonly IHttpClientFactory _clientFactory;
 
@@ -59,8 +56,8 @@ namespace CarbonCoin
             //Uri siteUri = new Uri("172.17.79.129:3000/auth/user/philnic");
             //string bob = Get(siteUri);
 
-            var request = new HttpRequestMessage(HttpMethod.Get, "http://172.17.79.129:3000/auth/user/philnic");
-            request.Content = new StringContent("{\"pass\":\"000\"}", Encoding.UTF8, "application/json");
+            var request = new HttpRequestMessage(HttpMethod.Get, "http://172.17.79.129:3000/auth");
+            request.Content = new StringContent("{\"username\":\"" + username + "\",\"password\":\"" + password + "\"}", Encoding.UTF8, "application/json");
 
             var client = _clientFactory.CreateClient();
 
@@ -68,11 +65,17 @@ namespace CarbonCoin
 
             if (response.IsSuccessStatusCode)
             {
-                return RedirectToPage("./Index");
+                using var responseStream = await response.Content.ReadAsStreamAsync();
+                token = responseStream.ToString();
+
+                Constants.token = token;
+
+                return RedirectToPage("./MyAccount");
             }
             else
             {
-                return RedirectToPage("./MyAccount");
+                ModelState.AddModelError("password", "Invalid Username or Password");
+                return Page();
             }
 
 
