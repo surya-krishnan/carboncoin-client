@@ -3,15 +3,19 @@
 @{
     ViewData["Title"] = "Sign-In";
 
-    <div>
-        <form>
-            <label>Username:</label>
-            <input id="username" name="username" type="text"/>
-            <br /> <br />
-            <label>Password: </label>
-            <input id="password" name="password" type="password" />
-            <br /> <br />
-            <input type="submit" name="submit" OnClick="submitButtonClick"/>
-        </form>
-    </div>
+    <form method="post">
+        <fieldset>
+            <input asp-for="username" placeholder="user name" />
+            <span asp-validation-for="username" class="text-danger"></span>
+
+            <br />
+
+            <input asp-for="password" type="password" placeholder="password" />
+            <span asp-validation-for="password" class="text-danger"></span>
+
+            <br />
+
+            <input type="submit" value="Submit" id="submitButton" />
+        </fieldset>
+    </form>
 }
