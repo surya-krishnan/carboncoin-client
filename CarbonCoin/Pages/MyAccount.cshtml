@@ -5,24 +5,40 @@
   
 }
 
-    <div class="text-left">
-        <h1 class="display-4">MyAccount</h1>
-        <br />
-        <h2> Balance: $@Model.info.balance  |  CarbonCoins: @Model.info.ccbalance</h2>
-        <br />
-        <h2> Transactions:</h2>
-        <!---- Add Transaction Stuff down here!-->
+<style>
 
-        <table style="width:50%">
-            <tr>
-                <th>Name</th>
-                <th>Carbon Transfer</th>
-                <th>Cash Transfer</th>
-                <th>Time Stamp</th>
-            </tr>
+    table, th, td {
+        border: 1px grey;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 15px;
+    }
 
 
-        </table>
+
+</style>
 
 
-    </div>
+<div class="text-left">
+    <h1 class="display-4">MyAccount</h1>
+    <br />
+    <h2> Balance: $@Model.info.balance  |  CarbonCoins: @Model.info.ccbalance</h2>
+    <br />
+    <h2> Transactions:</h2>
+    <!---- Add Transaction Stuff down here!-->
+
+    <table style="width:50%">
+        <tr>
+            <th>Name</th>
+            <th>Carbon Transfer</th>
+            <th>Cash Transfer</th>
+            <th>Time Stamp</th>
+        </tr>
+
+
+    </table>
+
+
+</div>

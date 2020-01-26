@@ -41,6 +41,14 @@ namespace CarbonCoin
 
                 info = JsonConvert.DeserializeObject<BalanceInfo>(json);
 
+                string name, carbonTransfer, cashTransfer, timeStamp;
+
+                request = new HttpRequestMessage(HttpMethod.Get, "");
+                request.Headers.Add("auth", Constants.token);
+
+                
+
+
             }
         }
 
