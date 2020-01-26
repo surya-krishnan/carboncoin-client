@@ -7,8 +7,22 @@
 
     <div class="text-left">
         <h1 class="display-4">MyAccount</h1>
-        <p> balance: @Model.info.balance yr: @Model.ye , success: yesssss</p>
+        <br />
+        <h2> Balance: $@Model.info.balance  |  CarbonCoins: @Model.info.ccbalance</h2>
+        <br />
+        <h2> Transactions:</h2>
+        <!---- Add Transaction Stuff down here!-->
 
-        <asp:HiddenField ID="HiddenField1" runat="server" />
+        <table style="width:50%">
+            <tr>
+                <th>Name</th>
+                <th>Carbon Transfer</th>
+                <th>Cash Transfer</th>
+                <th>Time Stamp</th>
+            </tr>
+
+
+        </table>
+
 
     </div>

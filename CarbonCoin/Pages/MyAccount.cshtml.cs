@@ -41,12 +41,6 @@ namespace CarbonCoin
 
                 info = JsonConvert.DeserializeObject<BalanceInfo>(json);
 
-                ye = "xd";
-
-            }
-            else
-            {
-                ye = "poop";
             }
         }
 
