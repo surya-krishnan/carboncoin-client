@@ -27,14 +27,26 @@
 
                     <link />
 
-                    @if (Constants.token != null)
+                    @if (Constants.token != null && Constants.username == "store")
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-muted" asp-area="" asp-page="/Sell">Sell</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-muted" asp-area="" asp-page="/Shop">Shop</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-muted" asp-area="" asp-page="/MyAccount">MyAccount</a>
+                        </li>
+
+                    }
+
+                    else if (Constants.token != null)
                     {
 
                         <ul class="navbar-nav ml-auto">
-
-                            <li class="nav-item">
-                                <a class="nav-link text-muted" asp-area="" asp-page="/Sell">Sell</a>
-                            </li>
 
                             <li class="nav-item">
                                 <a class="nav-link text-muted" asp-area="" asp-page="/Shop">Shop</a>

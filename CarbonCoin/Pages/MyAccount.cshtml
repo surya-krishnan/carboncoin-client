@@ -2,7 +2,7 @@
 @model MyAccountModel
 @{
     ViewData["Title"] = "MyAccount";
-  
+
 }
 
 <style>
@@ -29,16 +29,28 @@
     <h2> Transactions:</h2>
     <!---- Add Transaction Stuff down here!-->
 
-    <table style="width:50%">
+
+    <table style="width:75%">
         <tr>
-            <th>Name</th>
-            <th>Carbon Transfer</th>
+            <th>Sender Name</th>
+            <th>Recipient Name</th>
             <th>Cash Transfer</th>
-            <th>Time Stamp</th>
+            <th>Carbon Coin Transfer</th>
         </tr>
 
+        @for (int i = 0; i < Model.transData.Count; ++i)
+        {
+            <tr>
+                <th>@Model.transData[i].senderName</th>
+                <th>@Model.transData[i].recipientName</th>
+                <th>@Model.transData[i].cashTransfer</th>
+                <th>@Model.transData[i].carbonTransfer</th>
+            </tr>
+
+        }
 
     </table>
+
 
 
 </div>

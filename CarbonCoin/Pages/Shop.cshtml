@@ -2,3 +2,32 @@
 @model ShopModel
 @{
 }
+
+<div class="text-left">
+    <h1 class="display-4">Items for Sale</h1>
+
+    <table style="width:75%">
+        <tr>
+            <th>Product Name</th>
+            <th>Cost in Dollars</th>
+            <th>Carbon Cost</th>
+            <th>Stock</th>
+            <th></th>
+        </tr>
+
+
+        @for (int i = 0; i < Model.storeItems.Count; ++i)
+        {
+            <tr>
+                <th>@Model.storeItems[i].name</th>
+                <th>@Model.storeItems[i].cashCost</th>
+                <th>$@Model.storeItems[i].carbonCost</th>
+                <th>@Model.storeItems[i].leftInStock</th>
+                <th>Buy</th>
+            </tr>
+
+        }
+
+    </table>
+
+</div>
