@@ -8,6 +8,10 @@ a.navbar-brand {
   font-size: 25px;
 }
 
+a.sign-in {
+
+}
+
 /* Provide sufficient contrast against white background */
 a {
   color: #0366d6; /* Blue Colour for Hyperlink */
@@ -69,4 +73,13 @@ body {
   width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
+}
+
+/* ------- Additions ------- */
+p.customspace {
+    line-height: 1.5;
+}
+
+br.custom {
+    line-height: 22px
 }

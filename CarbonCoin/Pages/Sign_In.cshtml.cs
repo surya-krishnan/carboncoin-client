@@ -20,19 +20,30 @@ namespace CarbonCoin
 
         public void OnGet()
         {
-            // you can initialize the values. for example I set the username
-            username = "test";
+
         }
 
         public IActionResult OnPost()
         {
             // do something with username and password
 
-            if (string.IsNullOrEmpty(password))
+                // Check validity of username, match with databse
+
+            if (string.IsNullOrEmpty(username) && string.IsNullOrEmpty(password))
             {
+                ModelState.AddModelError("username", "Username is a required field.");
                 ModelState.AddModelError("password", "Password is a required field.");
                 return Page();
             }
+            else if (string.IsNullOrEmpty(username))
+            {
+                ModelState.AddModelError("username", "Username is a required field.");
+                return Page();
+            } else if (string.IsNullOrEmpty(password))
+            {
+                ModelState.AddModelError("password", "Password is a required field.");
+                return Page();
+            } 
 
             // or you can redirect to another page
             return RedirectToPage("./Index");

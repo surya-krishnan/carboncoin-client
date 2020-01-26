@@ -5,14 +5,18 @@
 
     <form method="post">
         <fieldset>
-            <input asp-for="username" placeholder="user name" />
+            <p class="customspace"> Please enter your account credentials: </p>
+            <label>Username:</label>
+            <input asp-for="username" placeholder="" />
             <span asp-validation-for="username" class="text-danger"></span>
 
-            <br />
+            <br class="customspace"/>
 
-            <input asp-for="password" type="password" placeholder="password" />
+            <label>&nbspPassword: </label>
+            <input asp-for="password" type="password" placeholder="" />
             <span asp-validation-for="password" class="text-danger"></span>
 
+            <br />
             <br />
 
             <input type="submit" value="Submit" id="submitButton" />
