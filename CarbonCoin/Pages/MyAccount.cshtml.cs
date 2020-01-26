@@ -9,8 +9,8 @@ namespace CarbonCoin
 
     public class BalanceInfo {
 
-        public double Ccbalance { get; set; }
-        public double MoneyBalance { get; set; }
+        public double ccbalance { get; set; }
+        public double balance { get; set; }
 
     }
 
@@ -19,7 +19,8 @@ namespace CarbonCoin
 
         private readonly IHttpClientFactory _clientFactory;
         public BalanceInfo info;
-        public string ye = "lolol";
+        public string ye { get; private set; } = "lololol";
+        public string responseStr { get; private set; } = "xx";
 
         public MyAccountModel(IHttpClientFactory clientFactory) {
             _clientFactory = clientFactory;
@@ -28,7 +29,7 @@ namespace CarbonCoin
         public async Task OnGet()
         {
             var request = new HttpRequestMessage(HttpMethod.Get, "http://172.17.79.129:3000/balance");
-            request.Headers.Add("token", Constants.token);
+            request.Headers.Add("auth", Constants.token);
 
             var client = _clientFactory.CreateClient();
 
@@ -36,8 +37,7 @@ namespace CarbonCoin
 
             if (response.IsSuccessStatusCode)
             {
-                using var responseStream = await response.Content.ReadAsStreamAsync();
-                string json = responseStream.ToString();
+                var json = await response.Content.ReadAsStringAsync();
 
                 info = JsonConvert.DeserializeObject<BalanceInfo>(json);
 

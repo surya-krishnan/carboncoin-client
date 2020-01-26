@@ -65,8 +65,7 @@ namespace CarbonCoin
 
             if (response.IsSuccessStatusCode)
             {
-                using var responseStream = await response.Content.ReadAsStreamAsync();
-                token = responseStream.ToString();
+                var token = await response.Content.ReadAsStringAsync();
 
                 Constants.token = token;
                 Constants.username = username;
